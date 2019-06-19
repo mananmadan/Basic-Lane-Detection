@@ -8,3 +8,5 @@ To run the code download the repository on your computer
 then open the file lane_detection.sln
 
 press ctrl + f5 to run the code and observe the image
+
+I had limited time, so I was only able to apply it on an Image.There were errors when i tried to convert it into a vedio regarding the codec,apologies for that.
