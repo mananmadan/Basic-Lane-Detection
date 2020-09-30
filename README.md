@@ -42,8 +42,8 @@ cv::cvtColor(inputImage, inputImage, CV\_RGB2GRAY);
 ```cpp
 int x0 = img.cols - 1;
 int y0 = img.rows - 1;
-int x1 = img.cols*2 - 1;
-int y1 = img.rows*2 - 1;
+int x1 = img.cols/2 - 1;
+int y1 = img.rows/2 - 1;
 int x2 = 0;
 int y2 = img.rows – 1;
 ```
