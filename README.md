@@ -7,7 +7,7 @@
 ```cpp
 img = imread(test3.png);
 ```
-![img1](pics/README_pics/img1.jpg)
+![img1](/pics/README_pics/img1.jpg)
 
 2\&gt;Perform lane detection on the image and store the final image into dst
 
