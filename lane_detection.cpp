@@ -23,7 +23,7 @@ int main()
 	    Mat greyscale_img;
 	    Mat greyscale__blur_img;
 	    Mat dst;
-	    img = imread("test1.png");
+	    img = imread("pics/test1.png");
 		imshow("input_image", img);
 		cvtColor(img, greyscale_img, COLOR_BGR2GRAY);
 		blur(greyscale_img, greyscale__blur_img, Size(3, 3));
