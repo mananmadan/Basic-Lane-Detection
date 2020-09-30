@@ -113,7 +113,7 @@ invInput.copyTo(outputImage, mask);
 ```cpp
 vector<Vec4i>linesP; \\will hold the results of the detection
 
-HoughLinesP(outputImage, linesP, 1, CV\_PI 180, 20, 20, 30); \\runs the actual detection
+HoughLinesP(outputImage, linesP, 1, CV_PI 180, 20, 20, 30); \\runs the actual detection
 ```
 8. Now I have used the endpoints to calculate slope to avoid a line that is too horizontal to get printed
 Now display all the detected line on the initial image
