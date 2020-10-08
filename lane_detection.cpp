@@ -8,13 +8,11 @@
 #include<iostream>
 #include <iostream> // for standard I/O
 #include <string>   // for strings
-
 #include <opencv2/core/core.hpp>        // Basic OpenCV structures (cv::Mat)
 #include <opencv2/highgui/highgui.hpp>  // Video write
 
 using namespace std;
 using namespace cv;
-
 
 int main()
 {
