@@ -31,22 +31,22 @@ def average_slope_lines(image,lines):
 
 
 def canny(image):
- ## Converting into gray scale image for edge detection
- lane_image = np.copy(image)
- gray = cv2.cvtColor(lane_image,cv2.COLOR_RGB2GRAY)
- blur = cv2.GaussianBlur(gray,(5,5),0)
- ## If the pixel derivative is less than 50 reject else >150 accept
- canny = cv2.Canny(blur,50,150) 
- return canny
+    ## Converting into gray scale image for edge detection
+    lane_image = np.copy(image)
+    gray = cv2.cvtColor(lane_image,cv2.COLOR_RGB2GRAY)
+    blur = cv2.GaussianBlur(gray,(5,5),0)
+    ## If the pixel derivative is less than 51 reject else >150 accept
+    canny = cv2.Canny(blur,50,150) 
+    return canny
 
 def region_of_interest(image):
- height = image.shape[0]
- polygons = np.array([[(200,height),(1100,height),(550,250)]])
- mask = np.zeros_like(image)
- ## mask is a black image , we will fill it with wite triangle mask
- cv2.fillPoly(mask,polygons,255)
- masked_image = cv2.bitwise_and(image,mask)
- return masked_image
+    height = image.shape[0]
+    polygons = np.array([[(200,height),(1100,height),(550,250)]])
+    mask = np.zeros_like(image)
+    ## mask is a black image , we will fill it with wite triangle mask
+    cv2.fillPoly(mask,polygons,255)
+    masked_image = cv2.bitwise_and(image,mask)
+    return masked_image
 
 def display_lines(image,lines):
     line_image = np.zeros_like(image)
@@ -60,19 +60,19 @@ def display_lines(image,lines):
 
 cap = cv2.VideoCapture("vedio/road-video/test2.mp4")
 while(cap.isOpened()):
- _, frame = cap.read()
- canny_image = canny(frame)
- cropped_image = region_of_interest(canny_image)
- lines = cv2.HoughLinesP(cropped_image,2,np.pi/180,100,np.array([]),minLineLength=40,maxLineGap=5)
- #average_lines = average_slope_lines(frame,lines)
- line_image = display_lines(frame,lines)
- combo_image = cv2.addWeighted(frame,0.8,line_image,1,1)
+    _, frame = cap.read()
+    canny_image = canny(frame)
+    cropped_image = region_of_interest(canny_image)
+    lines = cv2.HoughLinesP(cropped_image,2,np.pi/180,100,np.array([]),minLineLength=40,maxLineGap=5)
+    #average_lines = average_slope_lines(frame,lines)
+    line_image = display_lines(frame,lines)
+    combo_image = cv2.addWeighted(frame,0.8,line_image,1,1)
 
- ## Show current output
- cv2.imshow("result",combo_image)
+    ## Show current output
+    cv2.imshow("result",combo_image)
 
 ## Press a key to exit
- if cv2.waitKey(1) == ord('q'):
-     break
+if cv2.waitKey(1) == ord('q'):
+    break
 cap.release()
 cv2.destroyAllWindows()
